@@ -24,6 +24,7 @@ services:
     links:
       - nexusservice
       - jenkinsservice
+    restart: always
     command: [ nginx, '-g', 'daemon off;' ]
 
   nexusservice:
@@ -31,6 +32,7 @@ services:
     image: sonatype/nexus3
     ports:
       - "8081:8081"
+    restart: always
     volumes:
       - /nexus-data:/nexus-data
 
